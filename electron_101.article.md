@@ -1,4 +1,4 @@
-# Electron 101
+# Electron 101: Building Cross-Platform Desktop Apps with Web Technologies
 
 <details>
 <summary><strong>🧭 Table of Contents</strong></summary>
