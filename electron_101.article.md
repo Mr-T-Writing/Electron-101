@@ -11,7 +11,6 @@
   - [`RENDER PROCESS(es)` _(The Painter)_](#render-processes-the-user-interface)
   - [`UTILITY PROCESS(es)` _(The Mercenary)_](#utility-processes)
 - [Inter Process Communication (IPC)](#inter-process-communication-ipc)
-  - [Messaging Patterns](#messaging-patterns)
 - [Environment Variables](#environment-variables)
 - [Code Example](#code-example)
 - [Glossary](#glossary)
