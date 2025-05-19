@@ -7,9 +7,9 @@
 - [What is Electron](#what-is-electron)
 - [Cross-Platform Multi-Process Architecture](#cross-platform-multi-process-architecture)
 - [Electron Processes](#electron-processes)
-  - [`MAIN PROCESS` _(The Application "Conductor")](#main-process-the-application-conductor)_
-  - [`RENDER PROCESS(es)` _(The User Interface)](#render-processes-the-user-interface)_
-  - [`UTILITY PROCESS(es)`](#utility-processes)
+  - [`MAIN PROCESS` _(The Conductor)_](#main-process-the-application-conductor)
+  - [`RENDER PROCESS(es)` _(The Painter)_](#render-processes-the-user-interface)
+  - [`UTILITY PROCESS(es)` _(The Mercenary)_](#utility-processes)
 - [Inter Process Communication (IPC)](#inter-process-communication-ipc)
   - [Messaging Patterns](#messaging-patterns)
 - [Environment Variables](#environment-variables)
@@ -90,7 +90,7 @@ graph TB
 | MAIN          | - Managing app lifecycle <br /> - Window management <br /> - Interacting with native OS APIs        | FULL                                                                    | NONE              | FULL SYSTEM ACCESS                | - Application Entry Point <br /> - System-level interactions    | 
 | UTILITY**     | - Offloading specific tasks (e.g., CPU-intensive or crash-prone operations)                         | FULL                                                                    | NONE              | FULL SYSTEM ACCESS                | - Specialized background tasks _(communicates with RENDER PROCESS(es) via MessagePort)_ |         
 
-## `MAIN PROCESS` _(The "Conductor")_
+## `MAIN PROCESS` _(The Conductor)_
 
 > [!IMPORTANT]
 >
@@ -109,7 +109,7 @@ The `app` module lets the `MAIN PROCESS` handle key events like launching / quit
 3. Native OS Integration  
 The `MAIN PROCESS` manages system-level interactions such as creating application menus, displaying system dialogs, managing tray icons or responding to OS notifications.
 
-## `RENDER PROCESS(es)` _(The "Painter")_
+## `RENDER PROCESS(es)` _(The Painter)_
 
 > [!TIP]
 > 
@@ -125,7 +125,7 @@ The `RENDER PROCESS(es)` handles everything you see in a window, including displ
 2. Communication with `MAIN PROCESS` via IPC  
 For tasks requiring system access (e.g., saving files, database interactions, or accessing hardware), the `RENDER PROCESS(es)` sends requests to the `MAIN PROCESS` using `Inter-Process Communication (IPC)` channels.
 
-## `UTILITY PROCESS(es)` _(The "Mercenary")_
+## `UTILITY PROCESS(es)` _(The Mercenary)_
 
 `UTILITY PROCESS(es)` are like hired specialists in an Electron app, designed to handle specific tasks that the `MAIN PROCESS` or `RENDER PROCESS(es)` shouldn't tackle. Spawned by the `MAIN PROCESS` using Electron's `UtilityProcess API`, they run in a dedicated Node.js environment with full Node.js and system access, similar to the `MAIN PROCESS`. These processes are ideal for tasks that need extra isolation or resources without slowing down the app or risking its stability.
 
