@@ -306,7 +306,7 @@ function App() {
 
 # Code Example
 
-> [Example Electron repo](https://github.com/Learn-Like-Me-LLM/ELECTRON-EXAMPLE)
+> [Example Electron repo](https://github.com/MrT3313/ELECTRON-EXAMPLE)
 
 # Glossary
 
